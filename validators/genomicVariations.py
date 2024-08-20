@@ -166,11 +166,11 @@ class ChromosomeLocation(BaseModel, extra='forbid'):
     @field_validator('chr')
     @classmethod
     def chr_allowed(cls, v: str) -> str:
-        list_chr= ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","X","Y"]
+        list_chr= ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","X","Y","MT"]
         if v in list_chr:
             pass
         else:
-            raise ValueError('chr must be a valid chromosome, e.g. 1..22, X, Y')
+            raise ValueError('chr must be a valid chromosome, e.g. 1..22, X, Y, MT')
         return v.title()
     
 class SequenceLocation(BaseModel, extra='forbid'):
