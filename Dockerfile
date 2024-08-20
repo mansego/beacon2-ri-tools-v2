@@ -1,11 +1,11 @@
-FROM python:3.11-buster AS BUILD
+FROM python:3.11-buster AS build
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /usr/src/app
 
-ENV PYTHONBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
 RUN apt-get update
 #RUN apt-get upgrade -y
 RUN apt-get install -y --no-install-recommends \
